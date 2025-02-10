@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block subheader %} 
+<div class="d-flex align-items-center flex-wrap">
+    <h5>Inicio</h5>
+    <div class="clases subheader-separator subhaeder-separator-ver mt-2 bg-gray-200"></div>
+    <span>{% block title %} {% endblock %}</span>
+    <li><a href="">{% block name %}</a></li>{% endblock %}
+</div>
+{% endblock %}
+{% block content%} {% endblock %}
+{% block post_conten_script%}
+    {% block page_script %} {% endblock %}
+{% endblock %}
