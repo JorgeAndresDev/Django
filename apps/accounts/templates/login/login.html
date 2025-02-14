@@ -4,16 +4,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prueva API-login</title>
+    <title>Login</title>
     <!-- Axios -->
-    
+  
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <link rel="shortcut icon" href="{% static 'media/logoht.png' %}" type="image/x-icon">
   </head>
   <body>
     <div class="container">
       <form method="post">
         {% csrf_token %}
           <div class="card">
+            <img href="{% static 'media/logoht.png' %}" alt="">
             <h1>Iniciar Sesión</h1>
             <h4>Ingresa tu usuario y contraseña</h4>
             <label for="" >Usuario:</label>
