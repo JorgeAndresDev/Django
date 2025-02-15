@@ -1,3 +1,9 @@
 from django.shortcuts import render
+from django.shortcuts import render
+from django.views.generic import TemplateView, DetailView, CreateView, UpdateView, DeleteView# Asegúrate de crear el modelo Product en models.py
+from django.urls import reverse_lazy
 
-# Create your views here.
+# Vista para listar todos los productos
+class ProductList(TemplateView):
+    template_name = 'products/product_list.html'
+

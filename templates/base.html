@@ -1,23 +1,29 @@
 {% extends "head.html" %}
 {% load static %}
 {% block body %} 
-    <body style="height: 100vh; overflow-y: hidden;">
+    <body style="height: 100vh; overflow-y: hidden;" >
         <div class="container-fluid p-0 h-100">
             <div class="h-100">
                 <div class="d-flex h-100">
-                    <div style="width: 20%;" class="h-100 p-0 bg-dark">
+                    <div style="width: 15%;" class="h-100 p-0 bg-dark">
                         {% include 'sidebar.html' %}
                     </div>
                     <div class="container d-flex flex-column p-0 w-75 h-100 justify-content-between">
-                        {% include 'header.html' %}
-                        <div class="p-2 h-100">
-                            {% block info %} {% endblock %}
-                            <div class="h-100">
-                                <div class="h-100">
-                                    {% block content %} {% endblock %}
-                                </div>
+                        <div>
+                            <div class="d-flex flex-row align-items-center">
+                                {% include 'header.html' %}
+                                {% block header %}
+                                {% endblock %}
                             </div>
-                        </div> 
+                            <div class="p-2 h-100">
+                                {% block info %} {% endblock %}
+                                <div class="h-100">
+                                    <div class="h-100">
+                                        {% block content %} {% endblock %}
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
                         {% include 'footer.html' %}
                     </div>
                 </div>
