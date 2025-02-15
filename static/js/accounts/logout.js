@@ -12,7 +12,10 @@ document.getElementById('btn-logout').addEventListener('click', function (event)
         confirmButtonColor: '#d33',
         cancelButtonColor: '#3085d6',
         confirmButtonText: 'Sí, cerrar',
-        cancelButtonText: 'Cancelar'
+        cancelButtonText: 'Cancelar',
+        didOpen: () => {
+            document.body.classList.remove('swal2-shown', 'swal2-height-auto');
+        }
     }).then((result) => {
         if (result.isConfirmed) {
             localStorage.removeItem('isLogged'); // Remueve el ítem de localStorage
