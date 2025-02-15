@@ -22,6 +22,7 @@ urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
     path('admin/', admin.site.urls),
     path('auth/', include('apps.accounts.urls', namespace = "accounts")),
-    path('products/', include('apps.products.urls', namespace = "products"))
+    path('products/', include('apps.products.urls', namespace = "products")),
+    path('users/', include('apps.users.urls', namespace = "users"))
     
 ]

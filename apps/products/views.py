@@ -7,3 +7,7 @@ from django.urls import reverse_lazy
 class ProductList(TemplateView):
     template_name = 'products/product_list.html'
 
+# Vista para crear un nuevo producto
+class Productform(TemplateView):
+    template_name = 'products/product_form.html'
+

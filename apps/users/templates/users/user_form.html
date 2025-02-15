@@ -1,0 +1,52 @@
+{% extends "products/base.html" %}
+
+{% load static %}
+
+{% block page_title %}
+Agregar usuario
+{% endblock %}
+
+{% block title %}
+Agregar usuario
+{% endblock %}
+
+{% block header %}
+<a class="text-decoration-none text-dark" href="{% url 'users:user_list' %}"><span class="ms-2">usuario/</span></a>
+<span class="ms-2">Agregar usuario</span>
+{% endblock %}
+
+{% block content %}
+
+<div class="card shadow-sm">
+    <div class="card-header d-flex justify-content-between p-3">
+        <div class="card-title">Agregar usuario</div>
+    </div>
+    <div class="card-body" style="height: 600px; overflow-y: auto;">
+        <div class="card-body">
+            <!-- Formulario -->
+            <form id="userForm" method="POST" action="{% url 'users:user_form' %}">
+                {% csrf_token %}
+                <!-- Campo: Nombre -->
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre del usuario</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa el nombre del usuario" required>
+                </div>
+
+                <!-- Campo: Contraseña -->
+                <div class="mb-3">
+                    <label for="contraseña" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="contraseña" name="contraseña" placeholder="Ingresa la contraseña" required>
+                </div>
+
+                <!-- Botón de Enviar -->
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-success btn-sm">Guardar usuario</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="card-footer p-4"></div>
+</div>
+
+{% endblock %}

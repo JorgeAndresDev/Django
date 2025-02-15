@@ -14,46 +14,53 @@
 {% endblock %}
 
 {% block content %}
-    <div class="card card-body h-100">
-        <div class="  ">
-            <div class="text-center py-5 bg-light">
-                <h1 class="display-4">Bienvenido al Gestor de Productos</h1>
-                <p class="lead">Administra, organiza y controla tu inventario de manera eficiente.</p>
+<div class="card card-body h-100">
+    <div class="text-center py-5 bg-dark text-white shadow-lg">
+        <h1 class="display-4">Bienvenido al Gestor de Productos</h1>
+        <p class="lead">Administra, organiza y controla tu inventario de manera eficiente.</p>
+    </div>
+    <div class="d-flex justify-content-center align-items-center py-4">
+        <!-- Primera fila de tarjetas -->
+        <div class="row flex-row mb-4"> <!-- Añadí mb-4 para separar las filas -->
+            <div class="col-md-6 mb-3">
+                <div class="card text-center shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">Ver Productos</h5>
+                        <p class="card-text">Explora tu lista de productos.</p>
+                        <a href="{% url 'products:product_list' %}" class="btn btn-primary">Ver</a>
+                    </div>
+                </div>
             </div>
-            <div class=" ">
-                <div class="row justify-content-center py-4">
-                    <div class="col-md-3 mb-3">
-                        <div class="card text-center">
-                            <div class="card-body">
-                                <h5 class="card-title">Ver Productos</h5>
-                                <p class="card-text">Explora tu lista de productos.</p>
-                                <a href="" class="btn btn-primary">Ver</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <div class="card text-center">
-                            <div class="card-body">
-                                <h5 class="card-title">Agregar Producto</h5>
-                                <p class="card-text">Añade nuevos productos al inventario.</p>
-                                <a href="" class="btn btn-success">Agregar</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <div class="card text-center">
-                            <div class="card-body">
-                                <h5 class="card-title">Reportes</h5>
-                                <p class="card-text">Genera reportes de inventario.</p>
-                                <a href="" class="btn btn-info">Ir</a>
-                            </div>
-                        </div>
+            <div class="col-md-6 mb-3">
+                <div class="card text-center shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">Agregar Producto</h5>
+                        <p class="card-text">Añade nuevos productos al inventario.</p>
+                        <a href="{% url 'products:product_form' %}" class="btn btn-success">Agregar</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="">
-            
+        <div class="row flex-row"> 
+            <div class="col-md-6 mb-3">
+                <div class="card text-center shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">Ver Usuarios</h5>
+                        <p class="card-text">Explora nuestra lista de usuario.</p>
+                        <a href="{% url 'users:user_list' %}" class="btn btn-primary">Ver</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="card text-center shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">Agregar usuario</h5>
+                        <p class="card-text">Añade nuevos usuario al inventario.</p>
+                        <a href="{% url 'users:user_form' %}" class="btn btn-success">Agregar</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+</div>
 {% endblock %}
