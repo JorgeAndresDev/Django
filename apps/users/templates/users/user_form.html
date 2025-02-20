@@ -18,11 +18,11 @@ Agregar usuario
 {% block content %}
 
 <div class="card shadow-sm">
-    <div class="card-header d-flex justify-content-between p-3">
+    <div class="card-header d-flex justify-content-between p-3 bg-dark text-white">
         <div class="card-title">Agregar usuario</div>
     </div>
     <div class="card-body" style="height: 600px; overflow-y: auto;">
-        <div class="card-body">
+        <div class="card-body text-center">
             <!-- Formulario -->
             <form id="userForm" method="POST" action="{% url 'users:user_form' %}">
                 {% csrf_token %}
@@ -38,10 +38,7 @@ Agregar usuario
                     <input type="password" class="form-control" id="contraseña" name="contraseña" placeholder="Ingresa la contraseña" required>
                 </div>
 
-                <!-- Botón de Enviar -->
-                <div class="d-grid">
-                    <button type="submit" class="btn btn-success btn-sm">Guardar usuario</button>
-                </div>
+                <button type="submit" class="btn btn-success btn-lm">Guardar usuario</button>
             </form>
         </div>
     </div>

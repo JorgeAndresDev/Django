@@ -17,9 +17,9 @@ Usuarios
 {% block content %}
 
 <div class="card shadow-sm">
-    <div class="card-header d-flex justify-content-between p-3">
+    <div class="card-header d-flex justify-content-between p-3 bg-dark text-white">
         <div class="card-title">Usuarios</div>
-        <a href="{% url 'users:user_form' %}"><div class="card-toolbar"><button class="btn btn-primary btn-sm">Registrar usuario</button></div></a>
+        <a href="{% url 'users:user_form' %}"><div class="card-toolbar"><button class="btn btn-outline-primary btn-sm">Registrar usuario</button></div></a>
     </div>
     <div class="card-body" style="height: 600px; overflow-y: auto;">
         

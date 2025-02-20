@@ -17,12 +17,41 @@ Productos
 {% block content %}
 
 <div class="card shadow-sm">
-    <div class="card-header d-flex justify-content-between p-3">
+    <div class="card-header d-flex justify-content-between p-3 bg-dark text-white">
         <div class="card-title">Productos</div>
-        <a href="{% url 'products:product_form' %}"><div class="card-toolbar"><button class="btn btn-primary btn-sm">Registrar Producto</button></div></a>
+        <a href="{% url 'products:product_form' %}"><div class="card-toolbar"><button class="btn btn-outline-primary btn-sm">Registrar Producto</button></div></a>
     </div>
     <div class="card-body" style="height: 600px; overflow-y: auto;">
-        
+    <ul id="product-list"></ul>
+
+    <script>
+        // URL de tu API backend
+        const apiUrl = "http://localhost:9000/products";
+
+        // Función para obtener y mostrar los productos
+        async function fetchProducts() {
+            try {
+                const response = await fetch(apiUrl);
+                if (!response.ok) {
+                    throw new Error("Error al obtener los productos");
+                }
+                const products = await response.json();
+
+                // Mostrar los productos en la lista
+                const productList = document.getElementById("product-list");
+                products.forEach(product => {
+                    const li = document.createElement("li");
+                    li.textContent = `${product.nombre} - $${product.precio} (Cantidad: ${product.cantidad})`;
+                    productList.appendChild(li);
+                });
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        }
+
+        // Llamar a la función al cargar la página
+        fetchProducts();
+    </script>
     </div>
 
     <div class="card-footer p-4"></div>
