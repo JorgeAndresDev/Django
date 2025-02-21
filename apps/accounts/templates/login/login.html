@@ -1,49 +1,81 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
-  <head>
+<html lang="es">
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <!-- Axios -->
-  
-    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
-    <link rel="shortcut icon" href="{% static 'media/logoht.png' %}" type="image/x-icon">
-  </head>
-  <body>
-    <div class="container">
-      <form method="post">
-        {% csrf_token %}
-          <div class="card">
-            <img href="{% static 'media/logoht.png' %}" alt="">
-            <h1>Iniciar Sesión</h1>
-            <h4>Ingresa tu usuario y contraseña</h4>
-            <label for="" >Usuario:</label>
-            <input type="text" placeholder="Usuario" name="username" id="username" required />
-            <label for="">Contraseña:</label>
-            <input type="password" placeholder="Contraseña" name="password" id="password" required />
-            <button id="boton" type="submit">Ingresar</button>
-            <div class="b-login">
-              <a href="">Olvidé mi contraseña</a>          
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'media/nofondo.png' %}" type="image/x-icon" />
+
+    <style>
+        /* Estilos para la imagen de fondo */
+        body {
+            background-image: url("{% static 'media/BG.jpg' %}");
+            background-size: cover; /* Cubre toda la pantalla */
+            background-position: center; /* Centra la imagen */
+            background-repeat: no-repeat; /* Evita que se repita */
+            background-attachment: fixed; /* Fija la imagen al desplazarse */
+            margin: 0;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="card bg-dark bg-opacity-50" style="width: 350px;">
+            <!-- Div circular para el logo (usando Bootstrap) -->
+            <div class="d-flex justify-content-center">
+                <div class=" bg-opacity-50 rounded-circle  shadow-sm" 
+                     style="width: 100px; height: 100px; margin-top: -50px;">
+                    <img src="{% static 'media/MP-logo.jpg' %}" alt="Logo" class="img-fluid p-2 rounded-circle">
+                </div>
             </div>
-            
-          </div>
+
+            <!-- Contenido del formulario -->
+            <div class="card-body text-white">
+                <h1 class="card-title text-center mb-4">Iniciar Sesión</h1>
+                <h4 class="card-subtitle text-center mb-4">Ingresa tu usuario y contraseña</h4>
+
+                <form method="post">
+                    {% csrf_token %}
+                    <!-- Campo de Usuario -->
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Usuario:</label>
+                        <input type="text" class="form-control" id="username" placeholder="Usuario" name="username" required>
+                    </div>
+
+                    <!-- Campo de Contraseña -->
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Contraseña:</label>
+                        <input type="password" class="form-control" id="password" placeholder="Contraseña" name="password" required>
+                    </div>
+
+                    <!-- Botón de Ingresar -->
+                    <button type="submit" class="btn btn-dark w-100">Ingresar</button>
+                </form>
+                <!-- Enlace para recuperar contraseña -->
+                <div class="text-center mt-3">
+                    <a href="#" class="text-decoration-none text-light">Olvidé mi contraseña</a>
+                </div>
+            </div>
         </div>
-
-      </form>
-      
-
+    </div>
     <script>
-       // Verificar si hay un mensaje de error y mostrar la alerta si existe
-      window.addEventListener('DOMContentLoaded', (event) => {
+        // Verificar si hay un mensaje de error y mostrar la alerta si existe
+        window.addEventListener('DOMContentLoaded', (event) => {
         const errorMessage = "{{ error_message }}";
         const access_denied = "{{ access_denied }}";
+
         if (errorMessage) {
             Swal.fire({
                 icon: 'error',
                 title: '¡Ups!, Error con las Credenciales',
                 text: errorMessage,
-                confirmButtonColor: '#0d6efd'
+                confirmButtonColor: '#0d6efd',
+                theme: 'dark' // Tema oscuro
             });
         }
 
@@ -52,12 +84,14 @@
                 icon: 'error',
                 title: '¡Acceso Denegado!',
                 text: access_denied,
-                confirmButtonColor: '#0d6efd'
+                confirmButtonColor: '#0d6efd',
+                theme: 'dark' // Tema oscuro
             });
         }
-      });
-    </script> 
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    });
+     </script> 
+    <!-- Bootstrap JS (opcional, solo si necesitas funcionalidades de Bootstrap) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  </body>
+</body>
 </html>

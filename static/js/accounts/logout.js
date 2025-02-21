@@ -9,10 +9,13 @@ document.getElementById('btn-logout').addEventListener('click', function (event)
         text: "Esta acción cerrará su sesión actual.",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#d33',
-        cancelButtonColor: '#3085d6',
+        confirmButtonColor: '#d33', // Color del botón de confirmar
+        cancelButtonColor: '#3085d6', // Color del botón de cancelar
         confirmButtonText: 'Sí, cerrar',
         cancelButtonText: 'Cancelar',
+        background: '#1e1e1e', // Fondo oscuro del modal
+        color: '#ffffff', // Color del texto
+        iconColor: '#ffcc00', // Color del ícono (amarillo)
         didOpen: () => {
             document.body.classList.remove('swal2-shown', 'swal2-height-auto');
         }
