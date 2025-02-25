@@ -19,41 +19,63 @@ Productos
 <div class="card shadow-sm">
     <div class="card-header d-flex justify-content-between p-3 bg-dark text-white">
         <div class="card-title">Productos</div>
-        <a href="{% url 'products:product_form' %}"><div class="card-toolbar"><button class="btn btn-outline-primary btn-sm">Registrar Producto</button></div></a>
+        <a href="{% url 'products:product_form' %}">
+            <div class="card-toolbar"><button class="btn btn-outline-primary btn-sm">Registrar Producto</button></div>
+        </a>
     </div>
     <div class="card-body" style="height: 600px; overflow-y: auto;">
-    <ul id="product-list"></ul>
+        <ul id="product-list"></ul>
+        <div class="list">
+    
+            <div class="table-container table-responsive h-500px border rounded">
+                <table id="ProductTable" class="table d-none table-hover table-rounded table-striped gy-3 gs-3">
+                    <thead style="position: sticky;">
+                        <tr class="fw-bold fs-6 text-gray-800 border-bottom-2 border-gray-200">
+                            <th>#</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th class="w-150px">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ProductTableBody"></tbody>
+                </table>
+                <!--begin:: No Hay Resultados Buscador -->
+                <div id="noResultsMessage" style="display: none;">
+                    <div class="alert alert-danger d-flex align-items-center p-5">
+                        <!--begin::Icon-->
+                        <i class="ki-duotone ki-shield-cross fs-2hx text-danger me-4">
+                            <span class="path1"></span>
+                            <span class="path2"></span>
+                            <span class="path3"></span>
+                        </i>
+                        <!--end::Icon-->
+    
+                        <!--begin::Wrapper-->
+                        <div class="d-flex flex-column">
+                            <!--begin::Title-->
+                            <h4 class="mb-1 text-danger">No hay coincidencia de búsqueda</h4>
+                            <!--end::Title-->
+    
+                            <!--begin::Content-->
+                            <span>No se encontraron coincidencias en la búsqueda, intenta con otro criterio.</span>
+                            <!--end::Content-->
+                        </div>
+                        <!--end::Wrapper-->
+                    </div>
+                </div>
+                <!-- end:: No Hay Resultados Buscador -->
+                <div id="ProductLoading" class="w-100 h-100 d-flex align-items-center justify-content-center flex-column">
+                    <span class="spinner-border text-primary mb-2" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </span>
+                    <span class="text-center fs-6 fw-bold mb-1">Cargando Productos</span>
+                    <span class="text-gray-800 fw-medium teext-center">Estamos cargando el listado de productos</span>
+                </div>
+            </div>
 
-    <script>
-        // URL de tu API backend
-        const apiUrl = "http://localhost:9000/products";
-
-        // Función para obtener y mostrar los productos
-        async function fetchProducts() {
-            try {
-                const response = await fetch(apiUrl);
-                if (!response.ok) {
-                    throw new Error("Error al obtener los productos");
-                }
-                const products = await response.json();
-
-                // Mostrar los productos en la lista
-                const productList = document.getElementById("product-list");
-                products.forEach(product => {
-                    const li = document.createElement("li");
-                    li.textContent = `${product.nombre} - $${product.precio} (Cantidad: ${product.cantidad})`;
-                    productList.appendChild(li);
-                });
-            } catch (error) {
-                console.error("Error:", error);
-            }
-        }
-
-        // Llamar a la función al cargar la página
-        fetchProducts();
-    </script>
+    </div>    
     </div>
-
     <div class="card-footer p-4"></div>
 </div>
 
